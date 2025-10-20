@@ -3,8 +3,26 @@ import { Link } from 'react-router-dom'
 import { Phone, ArrowRight, Zap, Award } from 'lucide-react'
 import Button from './Button'
 import { COMPANY_INFO } from '../utils/constants'
+import { useHomeContent, useGeneralSettings } from '../hooks/useContent'
 
 const Hero = () => {
+  const { content } = useHomeContent()
+  const { settings } = useGeneralSettings()
+  
+  // Utiliser le contenu du CMS si disponible, sinon fallback sur les constantes
+  const heroTitle = content?.hero?.title || "Votre Expert en Électricité, Climatisation et Énergie Solaire"
+  const heroSubtitle = content?.hero?.subtitle || `${COMPANY_INFO.tagline} - Spécialiste de l'installation, rénovation et maintenance dans le Var et départements limitrophes.`
+  const heroButtonText = content?.hero?.buttonText || "Demander un Devis Gratuit"
+  const phone = settings?.phone || COMPANY_INFO.phone
+  const stats = content?.stats || [
+    { value: '2005', label: 'Année de création' },
+    { value: '10+', label: 'Collaborateurs' },
+    { value: '1000+', label: 'Clients satisfaits' },
+    { value: '3', label: 'Départements' }
+  ]
+  
+  const statIcons = ['🏢', '👥', '⭐', '📍']
+  
   return (
     <section className="relative min-h-screen flex items-center bg-gradient-to-br from-adelec-blue via-adelec-deep-blue to-blue-900 text-white overflow-hidden">
       {/* Animated Background Elements */}
@@ -59,10 +77,7 @@ const Hero = () => {
               transition={{ delay: 0.3 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight"
             >
-              Votre Expert en{' '}
-              <span className="text-adelec-orange">Électricité</span>,{' '}
-              <span className="text-adelec-orange">Climatisation</span> et{' '}
-              <span className="text-adelec-orange">Énergie Solaire</span>
+              {heroTitle}
             </motion.h1>
 
             <motion.p
@@ -71,7 +86,7 @@ const Hero = () => {
               transition={{ delay: 0.4 }}
               className="text-lg md:text-xl text-gray-200 mb-8 leading-relaxed"
             >
-              {COMPANY_INFO.tagline} - Spécialiste de l'installation, rénovation et maintenance dans le Var et départements limitrophes.
+              {heroSubtitle}
             </motion.p>
 
             <motion.div
@@ -82,12 +97,12 @@ const Hero = () => {
             >
               <Link to="/contact">
                 <Button variant="secondary" size="lg" icon={<ArrowRight size={20} />}>
-                  Demander un Devis Gratuit
+                  {heroButtonText}
                 </Button>
               </Link>
-              <a href={`tel:${COMPANY_INFO.phone}`}>
+              <a href={`tel:${phone}`}>
                 <Button variant="outline" size="lg" icon={<Phone size={20} />} className="bg-white/10 backdrop-blur-sm border-white text-white hover:bg-white hover:text-adelec-blue">
-                  {COMPANY_INFO.phone}
+                  {phone}
                 </Button>
               </a>
             </motion.div>
@@ -116,12 +131,7 @@ const Hero = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hidden lg:grid grid-cols-2 gap-6"
           >
-            {[
-              { value: '2005', label: 'Année de création', icon: '🏢' },
-              { value: '10+', label: 'Collaborateurs', icon: '👥' },
-              { value: '1000+', label: 'Clients satisfaits', icon: '⭐' },
-              { value: '3', label: 'Départements', icon: '📍' }
-            ].map((stat, index) => (
+            {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -129,7 +139,7 @@ const Hero = () => {
                 transition={{ delay: 0.5 + index * 0.1 }}
                 className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300"
               >
-                <div className="text-4xl mb-2">{stat.icon}</div>
+                <div className="text-4xl mb-2">{statIcons[index] || '📊'}</div>
                 <div className="text-3xl font-bold text-adelec-orange mb-1">{stat.value}</div>
                 <div className="text-sm text-gray-200">{stat.label}</div>
               </motion.div>
