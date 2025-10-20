@@ -1,0 +1,21 @@
+{
+  "companyName": "ADELEC83",
+  "tagline": "Entreprise familiale du Var depuis 2005",
+  "phone": "+33 4 94 91 27 53",
+  "email": "contact@adelec83.com",
+  "address": {
+    "street": "1 Chemin de l enclos",
+    "city": "Solliès-Pont",
+    "postalCode": "83210",
+    "region": "Var"
+  },
+  "hours": {
+    "weekdays": "8h00 - 18h00",
+    "weekend": "Fermé"
+  },
+  "social": {
+    "facebook": "https://www.facebook.com/adelec83",
+    "instagram": "https://www.instagram.com/adelec83",
+    "linkedin": "https://www.linkedin.com/company/adelec83"
+  }
+}

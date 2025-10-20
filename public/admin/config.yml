@@ -1,0 +1,155 @@
+backend:
+  name: test-repo
+
+# Configuration locale pour le développement
+local_backend: true
+
+# Configuration des médias
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+# Langue de l'interface
+locale: 'fr'
+
+# Collections de contenu
+collections:
+  # Articles de Blog
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Titre", name: "title", widget: "string"}
+      - {label: "Date de publication", name: "date", widget: "datetime"}
+      - {label: "Auteur", name: "author", widget: "string", default: "ADELEC83"}
+      - {label: "Image de couverture", name: "image", widget: "image"}
+      - {label: "Description courte", name: "description", widget: "text"}
+      - {label: "Catégorie", name: "category", widget: "select", options: ["Électricité", "Climatisation", "Panneaux Solaires", "Bornes de Recharge", "Actualités"]}
+      - {label: "Tags", name: "tags", widget: "list", default: []}
+      - {label: "Contenu", name: "body", widget: "markdown"}
+      - {label: "Publié", name: "published", widget: "boolean", default: false}
+
+  # Témoignages
+  - name: "testimonials"
+    label: "Témoignages"
+    folder: "content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Nom du client", name: "name", widget: "string"}
+      - {label: "Ville", name: "location", widget: "string"}
+      - {label: "Note (sur 5)", name: "rating", widget: "number", min: 1, max: 5, default: 5}
+      - {label: "Témoignage", name: "text", widget: "text"}
+      - {label: "Photo (optionnel)", name: "photo", widget: "image", required: false}
+      - {label: "Service concerné", name: "service", widget: "select", options: ["Électricité", "Climatisation", "Panneaux Solaires", "Bornes de Recharge"]}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Affiché sur le site", name: "featured", widget: "boolean", default: true}
+
+  # Réalisations / Projets
+  - name: "projects"
+    label: "Réalisations"
+    folder: "content/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Titre du projet", name: "title", widget: "string"}
+      - {label: "Client", name: "client", widget: "string"}
+      - {label: "Ville", name: "location", widget: "string"}
+      - {label: "Date de réalisation", name: "date", widget: "datetime"}
+      - {label: "Catégorie", name: "category", widget: "select", options: ["Électricité", "Climatisation", "Panneaux Solaires", "Bornes de Recharge"]}
+      - {label: "Image principale", name: "image", widget: "image"}
+      - {label: "Galerie d'images", name: "gallery", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+      - {label: "Description courte", name: "description", widget: "text"}
+      - {label: "Détails du projet", name: "body", widget: "markdown"}
+      - {label: "Caractéristiques", name: "features", widget: "list", field: {label: "Caractéristique", name: "feature", widget: "string"}}
+      - {label: "Affiché sur le site", name: "featured", widget: "boolean", default: true}
+
+  # Pages du site
+  - name: "pages"
+    label: "Pages"
+    files:
+      # Page d'accueil
+      - label: "Page d'accueil"
+        name: "home"
+        file: "content/pages/home.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Titre principal", name: "title", widget: "string"}
+              - {label: "Sous-titre", name: "subtitle", widget: "text"}
+              - {label: "Texte du bouton", name: "buttonText", widget: "string"}
+              - {label: "Image de fond", name: "backgroundImage", widget: "image", required: false}
+          
+          - label: "Section À propos"
+            name: "about"
+            widget: "object"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+          
+          - label: "Statistiques"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Valeur", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+
+      # Page À propos
+      - label: "À propos"
+        name: "about"
+        file: "content/pages/about.json"
+        fields:
+          - {label: "Titre de la page", name: "title", widget: "string"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Histoire de l'entreprise", name: "story", widget: "markdown"}
+          - label: "Équipe"
+            name: "team"
+            widget: "list"
+            fields:
+              - {label: "Nom", name: "name", widget: "string"}
+              - {label: "Poste", name: "role", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Photo", name: "photo", widget: "image", required: false}
+          - label: "Valeurs"
+            name: "values"
+            widget: "list"
+            fields:
+              - {label: "Titre", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+
+  # Configuration du site
+  - name: "settings"
+    label: "Paramètres"
+    files:
+      - label: "Informations générales"
+        name: "general"
+        file: "content/settings/general.json"
+        fields:
+          - {label: "Nom de l'entreprise", name: "companyName", widget: "string"}
+          - {label: "Slogan", name: "tagline", widget: "string"}
+          - {label: "Téléphone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - label: "Adresse"
+            name: "address"
+            widget: "object"
+            fields:
+              - {label: "Rue", name: "street", widget: "string"}
+              - {label: "Ville", name: "city", widget: "string"}
+              - {label: "Code postal", name: "postalCode", widget: "string"}
+              - {label: "Région", name: "region", widget: "string"}
+          - label: "Horaires"
+            name: "hours"
+            widget: "object"
+            fields:
+              - {label: "Semaine", name: "weekdays", widget: "string"}
+              - {label: "Week-end", name: "weekend", widget: "string"}
+          - label: "Réseaux sociaux"
+            name: "social"
+            widget: "object"
+            fields:
+              - {label: "Facebook", name: "facebook", widget: "string"}
+              - {label: "Instagram", name: "instagram", widget: "string"}
+              - {label: "LinkedIn", name: "linkedin", widget: "string"}

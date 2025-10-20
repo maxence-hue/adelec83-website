@@ -1,0 +1,29 @@
+{
+  "hero": {
+    "title": "Votre Expert en Électricité, Climatisation et Énergie Solaire",
+    "subtitle": "Entreprise familiale du Var depuis 2005 - Spécialiste de l'installation, rénovation et maintenance dans le Var et départements limitrophes.",
+    "buttonText": "Demander un Devis Gratuit"
+  },
+  "about": {
+    "title": "Entreprise familiale du Var depuis 2005",
+    "description": "Une expertise familiale au service de votre confort et de vos économies d'énergie"
+  },
+  "stats": [
+    {
+      "value": "2005",
+      "label": "Année de création"
+    },
+    {
+      "value": "10+",
+      "label": "Collaborateurs"
+    },
+    {
+      "value": "1000+",
+      "label": "Clients satisfaits"
+    },
+    {
+      "value": "3",
+      "label": "Départements couverts"
+    }
+  ]
+}

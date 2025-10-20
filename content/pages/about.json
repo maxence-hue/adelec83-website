@@ -1,0 +1,35 @@
+{
+  "title": "À Propos d'ADELEC83",
+  "description": "Entreprise familiale du Var depuis 2005 - Une histoire familiale au service de votre confort",
+  "story": "Fondée en **2005** par **Daniel Alehause** à Solliès-Pont, Var (83), **ADELEC83** est née d'une passion pour l'électricité et d'un engagement envers l'excellence.\n\nDepuis plus de **20 ans**, nous accompagnons particuliers et professionnels dans leurs projets électriques, de climatisation et d'énergies renouvelables. Notre expertise s'est construite au fil des années, projet après projet, toujours avec le même souci du détail et de la satisfaction client.\n\nAujourd'hui, la nouvelle génération a rejoint l'entreprise avec **Maxence Alehause**, spécialiste en énergie solaire photovoltaïque, apportant un regard neuf et des compétences pointues sur les nouvelles technologies énergétiques.\n\nNotre équipe de **10 professionnels qualifiés** partage les mêmes valeurs : qualité, réactivité, et engagement pour un avenir énergétique durable.",
+  "team": [
+    {
+      "name": "Daniel Alehause",
+      "role": "Fondateur & Gérant",
+      "description": "Expert en électricité depuis plus de 20 ans"
+    },
+    {
+      "name": "Maxence Alehause",
+      "role": "Responsable Photovoltaïque",
+      "description": "Spécialiste en énergie solaire et nouvelles technologies"
+    }
+  ],
+  "values": [
+    {
+      "title": "Expertise Familiale",
+      "description": "Savoir-faire transmis depuis 2005, entreprise familiale à taille humaine"
+    },
+    {
+      "title": "Qualité & Certification",
+      "description": "Certifications RGE QualiPV, IRVE et QualiClimafroid pour votre sérénité"
+    },
+    {
+      "title": "Réactivité",
+      "description": "Intervention rapide et soignée dans tout le Var et départements limitrophes"
+    },
+    {
+      "title": "Durabilité",
+      "description": "Solutions économiques et écologiques pour un avenir énergétique responsable"
+    }
+  ]
+}
